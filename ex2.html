@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>NAC Games e Soluções WEB - Exercício 02</title>
+		<style>
+			canvas{
+				border:1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="meu_canvas" width="800" height="400"></canvas>
+			<script>
+				var canvas = document.getElementById('meu_canvas');
+				var context = canvas.getContext('2d');
+				var id_interval =  window.setInterval('gameloop()', 50)
+				var y =10;	
+				var x =400;
+				var final = 0;
+				var pingue = 0;
+				var metade= 200;
+			function gameloop(){//circulo só caindo
+				if (y < 380 && final == 0 ) {
+						y = y + 10;
+				}
+				else if(y >= metade){//circulo na metade
+					y = y - 10;
+					final = 1;
+				}else {//circulo embaixo
+					final = 0;
+					metade = metade + (metade/2);
+				}
+				//INSERIR O CÍRCULO
+				desenhaCirculo();
+					
+				//MOSTRAR OS VALORES DE X E Y
+				document.getElementById("x").innerHTML = x;
+				document.getElementById("y").innerHTML = y;
+			}
+			function desenhaCirculo() {
+				context.clearRect(0,0,800,400);
+				context.beginPath();			
+				context.fillStyle = '#f00';
+				context.arc(x, y, 20, 0, 360*Math.PI/180, true);
+				context.fill();
+				context.lineWidth = 2;
+				context.strokeStyle = 'red';
+			}
+		</script>
+		<p> Valor do X: <span id="x"></span></p>
+		<p> Valor do Y: <span id="y"></span></p>
+	</body>
+</html>

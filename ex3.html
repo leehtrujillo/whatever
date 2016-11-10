@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Games e Soluções para WEB - Exercício 03</title>
+	</head>
+
+<body>
+   <canvas id="meu_canvas" width="800" height="400"></canvas>
+   <script>
+      // Canvas e contexto
+      var canvas = document.getElementById('meu_canvas');
+      var context = canvas.getContext('2d');
+      
+      context.beginPath(); //LINHAS
+	  context.moveTo(0, 0);  
+      context.lineTo(200, 0);
+      context.lineTo(200, 200);
+      context.lineTo(0, 200);
+	  context.lineTo(0, 0);
+	  context.lineWidth = 5;
+	  context.stroke();
+	  
+	  context.closePath(); //BOLAS
+	  context.beginPath();
+	  context.fillStyle = 'green';
+	  context.moveTo(100, 100);  
+	  context.arc(100, 100, 10, 2 * Math.PI, 0);
+	  context.fill();
+	  
+	  
+	  context.beginPath(); // LINHAS
+	  context.moveTo(220, 0);  
+      context.lineTo(420, 0);
+      context.lineTo(420, 200);
+      context.lineTo(220, 200);
+	  context.lineTo(220, 0);
+	  context.stroke();
+	
+
+	  
+	  context.closePath(); // BOLAS
+	  context.beginPath();
+	  context.fillStyle = 'green';
+	  context.moveTo(240, 20);  
+	  context.arc(240, 20, 10, 2 * Math.PI, 0);
+	  context.fill();
+	  
+	  context.closePath();
+	  context.beginPath();
+	  context.fillStyle = 'green';
+	  context.moveTo(400, 180);  
+	  context.arc(400, 180, 10, 2 * Math.PI, 0);
+	  context.fill();
+	  
+	  
+	  context.beginPath();
+	  context.moveTo(440, 0);  
+      context.lineTo(640, 0);
+      context.lineTo(640, 200);
+      context.lineTo(440, 200);
+	  context.lineTo(440, 0);
+	  context.stroke();
+	  
+	  context.closePath();
+	  context.beginPath();
+	  context.fillStyle = 'green';
+	  context.moveTo(460, 20);  
+	  context.arc(460, 20, 10, 2 * Math.PI, 0);
+	  context.fill();
+	  
+	  context.closePath();
+	  context.beginPath();
+	  context.fillStyle = 'green';
+	  context.moveTo(540, 100);  
+	  context.arc(540, 100, 10, 2 * Math.PI, 0);
+	  context.fill();
+	  
+	  context.closePath();
+	  context.beginPath();
+	  context.fillStyle = 'green';
+	  context.moveTo(620, 180);  
+	  context.arc(620, 180, 10, 2 * Math.PI, 0);
+	  context.fill();
+	  
+        
+   </script>
+</body>

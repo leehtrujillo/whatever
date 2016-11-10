@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Games e Soluções para WEB - Exercício 01</title>
+
+		<script type="text/javascript">
+			function triangulo( a, b, c){
+				a = parseInt(a);
+				b = parseInt(b);
+				c = parseInt(c);
+				//CONDIÇÕES DE EXISTÊNCIA
+				var condicao1 = condicao2 = condicao3 = 0;
+				var mensagem = '';
+				//VALIDAÇÃO DA ENTRADA
+				if(isNaN(a) || isNaN(b) || isNaN(c))  {
+					document.getElementById('saida').innerHTML = "INSIRA TODOS OS VALORES";
+					return false;
+				}
+				//| b - c | < a < b + c
+				if(Math.abs(b-c) < a && a < (b+c) ) condicao1= 1;
+				//| a - c | < b < a + c
+				if(Math.abs(a-b) < b && b < (a+c) ) condicao2= 1;
+				//| a - b | < c < a + b
+				if(Math.abs(a-b) < c && c < (a+b) ) condicao3= 1;
+	
+				if(condicao1 && condicao2 && condicao3) {
+					mensagem = "É UM TRIÂNGULO";
+					if(a == b && b == c)          mensagem += " EQUILÁTERO";
+					else if(a==b || b==c || a==c) mensagem  += " ISÓSCELES";
+					else 	mensagem +=  " ESCALENO";
+				}	
+				else mensagem = "NÃO É UM TRIÂNGULO";
+				
+				document.getElementById('saida').innerHTML = mensagem;
+			}	
+		</script>
+	</head>
+	<body>
+		<h1>VERIFICAR SE É TRIÂNGULO</h1>
+		<form name="form1">
+			<p>Lado A: <input type="number"  name="a" value=""></p>
+			<p>Lado B: <input type="number"  name="b" value=""></p>
+			<p>Lado C: <input type="number"  name="c" value=""></p>
+			<p><input type="button" onclick="triangulo(document.form1.a.value, document.form1.b.value, document.form1.c.value);" value="É OU NÃO É TRIÂNGULO?"></p>
+			<p id="saida"></p>
+		</form>
+	</body>
+</html>
